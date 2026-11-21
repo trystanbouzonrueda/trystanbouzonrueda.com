@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Trystan Bouzon Rueda</title>
+    <meta name="description" content="Portfolio en 3D de Trystan Bouzon Rueda : systèmes, réseaux et homelab, sur une île flottante de Marseille. Site hébergé chez moi, sur un Intel NUC." />
+    <meta name="theme-color" content="#6fb8f5" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <!-- la ville (4,8 Mo) se télécharge en même temps que le JS -->
+    <link rel="preload" href="./models/marseille.glb" as="fetch" type="model/gltf-binary" crossorigin="anonymous" />
+    <link rel="preload" href="./models/monuments.glb" as="fetch" type="model/gltf-binary" crossorigin="anonymous" />
+    <link rel="canonical" href="https://trystanbouzonrueda.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:site_name" content="Trystan Bouzon Rueda" />
+    <meta property="og:title" content="Trystan Bouzon Rueda · trystanbouzonrueda.com" />
+    <meta property="og:description" content="Élève ingénieur systèmes et réseaux. Visite mon portfolio : une Marseille miniature en 3D, servie depuis mon homelab." />
+    <meta property="og:url" content="https://trystanbouzonrueda.com/" />
+    <meta property="og:image" content="https://trystanbouzonrueda.com/img/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"Trystan Bouzon Rueda","url":"https://trystanbouzonrueda.com/",
+       "jobTitle":"Élève ingénieur informatique, administrateur systèmes et réseaux en alternance",
+       "alumniOf":{"@type":"CollegeOrUniversity","name":"CESI École d'Ingénieurs"},
+       "address":{"@type":"PostalAddress","addressLocality":"Marseille","addressCountry":"FR"},
+       "sameAs":["https://www.linkedin.com/in/trystan-bouzon-rueda","https://github.com/trystanbouzonrueda"]}
+    </script>
+    <script>
+      // Applique le thème avant le premier rendu (évite le flash).
+      try {
+        const s = JSON.parse(localStorage.getItem('portfolio.settings.v3') || localStorage.getItem('portfolio.settings.v2') || '{}');
+        const t = s.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div class="skies" aria-hidden="true" id="skies"></div>
+    <canvas id="scene" aria-label="trystanbouzonrueda.com : une ville miniature sur une île flottante, en 3D" data-en-aria-label="trystanbouzonrueda.com: a miniature city on a floating island, in 3D"></canvas>
+
+    <div class="intro-veil" id="intro-veil" aria-hidden="true"></div>
+    <div class="loading" id="loading" role="status">
+      <p class="loading-title" role="img" aria-label="trystanbouzonrueda.com"><span class="tw-prompt" aria-hidden="true">&gt;</span><span id="tw" aria-hidden="true"></span><span class="tw-caret" aria-hidden="true"></span></p>
+      <script>
+        // machine à écrire : démarre avant le gros script, texte complet si mouvement réduit
+        (() => { const el = document.getElementById('tw'), a = 'trystanbouzonrueda', b = '.com';
+          const put = (n) => { el.innerHTML = (a + b).slice(0, n).replace(/(\.c?o?m?)$/, '<b>$1</b>'); };
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches) return put(99);
+          let n = 0; const t = setInterval(() => { put(++n); if (n >= a.length + b.length) clearInterval(t); }, 70); })();
+      </script>
+      <div class="loading-bar"><i id="loading-fill"></i></div>
+      <p class="loading-text" id="loading-text" data-en="Loading the island…">Chargement de l'île…</p>
+      <a class="loading-cv" href="./recruteur/" data-en-href="./recruteur/?lang=en" data-en="Recruiter? Simple version and resume →">Recruteur ? Version simple et CV →</a>
+    </div>
+
+    <header class="hud-top">
+      <div class="brand glass">
+        <strong>Trystan Bouzon Rueda</strong>
+        <span data-en="Systems, networking &amp; homelab">Systèmes, réseaux &amp; homelab</span>
+        <a class="simple-link" href="./recruteur/" data-en-href="./recruteur/?lang=en" data-en="Recruiter version · resume">Version recruteur · CV</a>
+      </div>
+      <nav class="quick glass" id="quick" aria-label="Rubriques" data-en-aria-label="Sections"></nav>
+    </header>
+
+    <div class="hud-bottom">
+      <div class="bar glass">
+        <div class="swatches" id="time" role="group" aria-label="Moment de la journée" data-en-aria-label="Time of day"></div>
+        <span class="divider" aria-hidden="true"></span>
+        <button id="carte-btn" class="icon-btn" type="button" title="Carte : se rendre quelque part" aria-label="Carte" data-en-title="Map: go somewhere" data-en-aria-label="Map" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4Z" /><path d="M9 4v13.5M15 6.5V20" /></svg>
+        </button>
+        <button id="metro-btn" class="icon-btn" type="button" title="Métro : aller à une station" aria-label="Métro" data-en-title="Metro: go to a station" data-en-aria-label="Metro" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4" /><path d="M7.5 16.5v-9l4.5 6 4.5-6v9" /></svg>
+        </button>
+        <button id="lieux-btn" class="icon-btn" type="button" title="Lieux : visiter un bâtiment" aria-label="Lieux" data-en-title="Places: visit a landmark" data-en-aria-label="Places" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5V9l5-3v14.5M9 20.5V4.5l11 4v12M3 20.5h18M12.5 10h4M12.5 13.5h4M12.5 17h4" /></svg>
+        </button>
+        <button id="overview" class="icon-btn" type="button" title="Vue d'ensemble" aria-label="Vue d'ensemble" data-en-title="Overview" data-en-aria-label="Overview">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>
+        </button>
+        <button id="lights-btn" class="icon-btn" type="button" title="Lumières de la ville" aria-label="Lumières de la ville" data-en-title="City lights" data-en-aria-label="City lights" aria-expanded="false" aria-controls="lights-pop">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z" /></svg>
+        </button>
+        <button id="quality-btn" class="icon-btn quality" type="button" title="Qualité">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h3v-4H4zM10.5 19h3V11h-3zM17 19h3V6h-3z" /></svg>
+        </button>
+        <button id="sound-btn" class="icon-btn sound-btn" type="button" aria-pressed="true" title="Couper le son" aria-label="Couper le son">
+          <svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" /></svg>
+          <svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4zM16 9.5l5 5M21 9.5l-5 5" /></svg>
+        </button>
+        <button id="lang-btn" class="icon-btn lang-btn" type="button">EN</button>
+        <button id="theme" class="icon-btn theme" type="button" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" /><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" /></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" /></svg>
+        </button>
+      </div>
+      <p class="hint" id="hint" data-en="Drag to rotate · scroll to zoom · WASD to roam · click a landmark">Glisser pour tourner · molette pour zoomer · ZQSD pour se balader · cliquer sur un lieu</p>
+    </div>
+
+    <p class="credits"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a> · <a href="./mentions-legales/" data-en="Legal notice">Mentions légales</a></p>
+    <div class="lights-pop glass" id="lights-pop" role="dialog" aria-label="Lumières de la ville" data-en-aria-label="City lights" hidden>
+      <label for="lights-range"><span data-en="City lights">Lumières de la ville</span><b id="lights-val">50 %</b></label>
+      <input id="lights-range" type="range" min="0" max="100" step="1" value="50" />
+      <p class="lights-note" id="lights-note"><span data-en="Visible at sunset and at night.">Visible au coucher du soleil et la nuit.</span> <button type="button" id="lights-night" data-en="See at night">Voir de nuit</button></p>
+    </div>
+    <div class="bulles" id="bulles"></div>
+    <div class="tag glass" id="place-tag" hidden></div>
+
+    <aside class="nav glass" id="nav" hidden>
+      <div class="nav-tabs" role="tablist" aria-label="Se déplacer" data-en-aria-label="Get around">
+        <button type="button" role="tab" data-tab="carte" aria-selected="true" data-en="Map">Carte</button>
+        <button type="button" role="tab" data-tab="metro" aria-selected="false" data-en="Metro">Métro</button>
+        <button type="button" role="tab" data-tab="lieux" aria-selected="false" data-en="Places">Lieux</button>
+      </div>
+      <button class="close icon-btn" id="nav-close" type="button" aria-label="Fermer" data-en-aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div role="tabpanel">
+        <div class="nav-map" id="nav-map"><img src="./data/minimap.svg" alt="Carte de Marseille : toucher un endroit pour s'y rendre" data-en-alt="Map of Marseille: tap a spot to go there" /><i id="nav-dot"></i></div>
+        <p class="nav-help" data-en="Tap the map to go there.">Touchez la carte pour vous y rendre.</p>
+      </div>
+      <div class="nav-metro" id="nav-metro" role="tabpanel" hidden></div>
+      <div class="nav-lieux" id="nav-lieux" role="tabpanel" hidden></div>
+    </aside>
+
+    <aside class="panel glass" id="panel" hidden aria-live="polite" aria-labelledby="panel-title">
+      <button class="close icon-btn" id="panel-close" type="button" aria-label="Fermer" data-en-aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <p class="kicker" id="panel-kicker"></p>
+      <h2 id="panel-title" tabindex="-1"></h2>
+      <div class="panel-body" id="panel-body"></div>
+    </aside>
+
+    <div class="rotate" id="rotate" role="alert">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2" /><path d="M2.5 15a9.5 9.5 0 0 0 7 6.5M21.5 9a9.5 9.5 0 0 0-7-6.5" /></svg>
+      <p data-en="Turn your phone sideways to visit trystanbouzonrueda.com.">Tourne ton téléphone à l'horizontale pour visiter trystanbouzonrueda.com.</p>
+      <a href="./recruteur/" data-en-href="./recruteur/?lang=en" data-en="Or see the simple version (resume)">Ou voir la version simple (CV)</a>
+    </div>
+
+    <noscript><p class="noscript">Ce portfolio est une île en 3D : il faut activer JavaScript. · This portfolio is a 3D island: please enable JavaScript.</p></noscript>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

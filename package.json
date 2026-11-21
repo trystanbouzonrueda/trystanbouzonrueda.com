@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "export-blend": "blender -b blender/marseille.blend --python blender/export_web.py",
+    "models": "node scripts/optimize.mjs blender/export/marseille_base_raw.glb public/models/marseille.glb && node scripts/optimize.mjs blender/export/marseille_details_raw.glb public/models/marseille_details.glb",
+    "city": "npm run export-blend && python3 blender/osm/minimap.py && npm run models && npm run trystan",
+    "trystan": "node scripts/build_perso.mjs"
+  },
+  "dependencies": {
+    "postprocessing": "^6.39.6",
+    "simple-icons": "16.36.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "^4.5.1",
+    "@types/three": "^0.187.0",
+    "lil-gui": "^0.21.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

@@ -1,0 +1,18 @@
+node_modules/
+dist/
+__pycache__/
+.env*
+
+# Blender sources (heavy, kept locally)
+blender/*.blend
+blender/*.blend1
+blender/export/
+blender/models/
+blender/model-try/
+blender/meshy/*.glb
+blender/meshy/images/
+blender/osm/raw/
+blender/osm/build.log
+blender/osm/preview*.png
+blender/osm/preview.svg
+blender/preview_fidele.blend

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trystan Bouzon Rueda · Stage systèmes, réseaux et IA</title>
+  <meta name="description" content="Trystan Bouzon Rueda, élève ingénieur informatique (CESI) et administrateur systèmes et réseaux en alternance. Recherche un stage de 12 semaines à l'étranger en systèmes, réseaux et IA. CV à télécharger." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Trystan Bouzon Rueda","url":"https://trystanbouzonrueda.com/recruteur/",
+     "jobTitle":"Élève ingénieur informatique · Administrateur systèmes et réseaux (alternance)",
+     "alumniOf":{"@type":"CollegeOrUniversity","name":"CESI École d'Ingénieurs"},
+     "knowsAbout":["Systèmes","Réseaux","Cybersécurité","Kubernetes","Proxmox","IA appliquée"],
+     "sameAs":["https://www.linkedin.com/in/trystan-bouzon-rueda","https://github.com/trystanbouzonrueda"]}
+  </script>
+  <style>
+    :root {
+      --bg: #f4f5f7; --card: #fff; --text: #17181c; --muted: #5b5d66; --line: #e2e4e9;
+      --accent: #0b5cd5; --accent-soft: #e8f0fd; --warm: #b4561a; --chip: #f1f3f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f1115; --card: #181b21; --text: #eef0f3; --muted: #a3a7b1; --line: #2a2e37;
+        --accent: #5aa2ff; --accent-soft: #16243a; --warm: #f0954a; --chip: #222631; }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line); }
+    .bar-in { max-width: 860px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+    .bar strong { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bar .sp { flex: 1; }
+    .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 99px; overflow: hidden; }
+    .lang button { border: 0; background: none; color: var(--muted); font: 600 13px/1 system-ui, sans-serif; padding: 8px 11px; cursor: pointer; }
+    .lang button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 10px; background: var(--accent); color: #fff;
+      font-weight: 600; font-size: 14px; white-space: nowrap; }
+    .btn:hover { text-decoration: none; filter: brightness(1.08); }
+    .btn svg { width: 16px; height: 16px; }
+    .btn.ghost { background: var(--accent-soft); color: var(--accent); }
+    .monde { position: relative; display: block; margin: 0 0 16px; border-radius: 16px; overflow: hidden; color: #fff; aspect-ratio: 960 / 420;
+      background: linear-gradient(135deg, #3b2a6b, #e98a4a); box-shadow: 0 6px 24px rgba(30, 20, 60, .18); }
+    .monde img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+    .monde:hover { text-decoration: none; } .monde:hover img { transform: scale(1.03); }
+    .monde-txt { position: absolute; inset: auto 0 0 0; display: grid; gap: 4px; padding: 40px 22px 18px;
+      background: linear-gradient(transparent, rgba(20, 12, 40, .82)); }
+    .monde-txt b { font-size: 24px; letter-spacing: -.01em; }
+    .monde-txt span { font-size: 14px; opacity: .92; max-width: 560px; }
+    .monde-txt i { position: absolute; right: 20px; bottom: 18px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+      background: #fff; color: #3b2a6b; font: 700 22px/1 system-ui, sans-serif; font-style: normal; transition: transform .2s; }
+    .monde:hover .monde-txt i { transform: translateX(4px); }
+    @media (max-width: 640px) { .monde { aspect-ratio: 4 / 3; } .monde-txt b { font-size: 20px; } .monde-txt span { padding-right: 52px; } }
+    main { max-width: 860px; margin: 0 auto; padding: 24px 16px 56px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; margin-bottom: 14px; }
+    .hero { display: grid; grid-template-columns: 112px 1fr; gap: 22px; align-items: center; }
+    .photo { width: 112px; height: 140px; object-fit: cover; object-position: 50% 28%; border-radius: 12px; }
+    h1 { margin: 0; font-size: clamp(24px, 4vw, 30px); line-height: 1.15; letter-spacing: -0.02em; }
+    .role { margin: 6px 0 12px; color: var(--muted); }
+    .goal { display: inline-block; margin: 0 0 12px; padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent);
+      font-weight: 700; line-height: 1.35; }
+    .contacts { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .fact { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+    .fact b { display: block; font-size: 15px; }
+    .fact span { color: var(--muted); font-size: 14px; }
+    h2 { margin: 0 0 12px; font-size: 13px; text-transform: uppercase; letter-spacing: .09em; color: var(--warm); }
+    h3 { margin: 16px 0 2px; font-size: 16px; line-height: 1.35; }
+    .meta { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
+    p { margin: 0 0 8px; }
+    ul { margin: 4px 0 0; padding-left: 20px; }
+    li { margin: 3px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .tag { padding: 3px 9px; border-radius: 99px; background: var(--chip); font-size: 13px; }
+    .star { border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 6px; }
+    .star h3 { margin-top: 0; }
+    .skills { display: grid; gap: 12px; }
+    .skills h3 { margin: 0 0 4px; font-size: 14px; }
+    .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+    .dl { display: block; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; color: var(--text); }
+    .dl:hover { border-color: var(--accent); text-decoration: none; }
+    .dl strong { display: block; }
+    .dl > span { color: var(--muted); font-size: 14px; }
+    .dl.main { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .dl.main > span { color: rgba(255, 255, 255, .85); }
+    footer { text-align: center; color: var(--muted); font-size: 14px; }
+    /* bascule FR/EN : seuls les éléments de la langue choisie s'affichent */
+    html[lang="fr"] [data-lang="en"], html[lang="en"] [data-lang="fr"] { display: none !important; }
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .contacts { justify-content: center; }
+      .facts { grid-template-columns: 1fr; }
+      .bar strong { display: none; }
+    }
+    @media print {
+      body { background: #fff; color: #000; } .bar, .downloads-card, .monde, footer { display: none; }
+      .card { border: 0; padding: 6px 0; margin: 0; } a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div class="bar-in">
+      <strong>Trystan Bouzon Rueda</strong>
+      <span class="sp"></span>
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-set="fr" aria-pressed="true">FR</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn ghost" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg><span data-lang="fr">Monde 3D</span><span data-lang="en">3D world</span></a>
+      <a class="btn" href="#cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span data-lang="fr">CV</span><span data-lang="en">Resume</span></a>
+    </div>
+  </div>
+
+  <main>
+    <header class="card hero">
+      <img class="photo" src="/img/trystan-cv.jpg" alt="Trystan Bouzon Rueda" width="112" height="140" />
+      <div>
+        <h1>Trystan Bouzon Rueda</h1>
+        <p class="role" data-lang="fr">Élève ingénieur informatique (CESI, 4ᵉ année) · Administrateur systèmes et réseaux en alternance</p>
+        <p class="role" data-lang="en">Computer engineering student (CESI, 4th year) · Systems &amp; network administrator (work-study)</p>
+        <p class="goal" data-lang="fr">Je recherche un stage de 12 semaines à l'étranger en systèmes, réseaux et/ou IA.</p>
+        <p class="goal" data-lang="en">Looking for a 12-week internship abroad in systems, networking and/or AI.</p>
+        <div class="contacts">
+          <a href="mailto:trystan.bouzon08@gmail.com">trystan.bouzon08@gmail.com</a>
+          <a href="https://www.linkedin.com/in/trystan-bouzon-rueda" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/trystanbouzonrueda" target="_blank" rel="noopener">GitHub</a>
+          <span>Marseille, France</span>
+        </div>
+      </div>
+    </header>
+
+    <a class="monde" href="/">
+      <img src="/img/monde-3d.webp" alt="" width="960" height="420" fetchpriority="low" />
+      <span class="monde-txt">
+        <b data-lang="fr">Visiter le monde 3D</b><b data-lang="en">Explore the 3D world</b>
+        <span data-lang="fr">Mon portfolio est une Marseille miniature en 3D, construite depuis OpenStreetMap et servie depuis mon homelab.</span>
+        <span data-lang="en">My portfolio is a miniature 3D Marseille, built from OpenStreetMap and served from my homelab.</span>
+        <i aria-hidden="true">→</i>
+      </span>
+    </a>
+
+    <section class="card" aria-label="En bref / At a glance">
+      <div class="facts">
+        <div class="fact" data-lang="fr"><b>Infra en production</b><span>Serveurs, réseau et conteneurs à la DSI d'une collectivité depuis 09/2025</span></div>
+        <div class="fact" data-lang="en"><b>Production infrastructure</b><span>Servers, network and containers at a city IT department since 09/2025</span></div>
+        <div class="fact" data-lang="fr"><b>Homelab</b><span>Proxmox, OPNsense, VLAN, TrueNAS, ce site auto-hébergé</span></div>
+        <div class="fact" data-lang="en"><b>Homelab</b><span>Proxmox, OPNsense, VLANs, TrueNAS, this self-hosted site</span></div>
+        <div class="fact" data-lang="fr"><b>IA appliquée</b><span>Agents IA, Model Context Protocol, modèles locaux</span></div>
+        <div class="fact" data-lang="en"><b>Applied AI</b><span>AI agents, Model Context Protocol, local models</span></div>
+      </div>
+    </section>
+
+    <section class="card downloads-card" id="cv" aria-labelledby="cv-t">
+      <h2 id="cv-t"><span data-lang="fr">CV à télécharger</span><span data-lang="en">Download my resume</span></h2>
+      <div class="downloads">
+        <a class="dl main" href="/cv/Trystan-Bouzon-Rueda-CV-Mobilite-FR.pdf" download data-lang="fr"><strong>CV stage à l'étranger</strong><span>Français · PDF</span></a>
+        <a class="dl main" href="/cv/Trystan-Bouzon-Rueda-CV-Mobility-EN.pdf" download data-lang="en"><strong>Resume · international internship</strong><span>English · PDF</span></a>
+        <a class="dl" href="/cv/Trystan-Bouzon-Rueda-CV-Mobility-EN.pdf" download data-lang="fr"><strong>CV stage à l'étranger (anglais)</strong><span>English · PDF</span></a>
+        <a class="dl" href="/cv/Trystan-Bouzon-Rueda-CV-Mobilite-FR.pdf" download data-lang="en"><strong>International internship (French)</strong><span>Français · PDF</span></a>
+        <a class="dl" href="/cv/cv-trystan-bouzon-rueda.pdf" download><strong><span data-lang="fr">CV général</span><span data-lang="en">General resume</span></strong><span><span data-lang="fr">Français</span><span data-lang="en">French</span> · PDF, 1 page</span></a>
+        <a class="dl" href="/cv/Trystan-Bouzon-Rueda-CV-Research-EN.pdf" download><strong><span data-lang="fr">CV recherche</span><span data-lang="en">Research resume</span></strong><span>English · PDF</span></a>
+        <a class="dl" href="/cv/Trystan-Bouzon-Rueda-CV-Recherche-FR.pdf" download><strong><span data-lang="fr">CV recherche</span><span data-lang="en">Research resume</span></strong><span><span data-lang="fr">Français</span><span data-lang="en">French</span> · PDF</span></a>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="exp-t">
+      <h2 id="exp-t"><span data-lang="fr">Expérience</span><span data-lang="en">Experience</span></h2>
+      <h3 style="margin-top:0"><span data-lang="fr">Administrateur systèmes et réseaux (alternance)</span><span data-lang="en">Systems &amp; network administrator (work-study)</span></h3>
+      <p class="meta"><span data-lang="fr">09/2025 – aujourd'hui · DSI de la mairie de Plan-de-Cuques (France)</span><span data-lang="en">09/2025 – present · IT department, Plan-de-Cuques city hall (France)</span></p>
+      <ul data-lang="fr">
+        <li>Administration des serveurs et du réseau : annuaire, services réseau, virtualisation.</li>
+        <li>Plateforme d'applications métier conteneurisée, authentification unique, déploiement automatisé (sujet de mon projet de démarche scientifique).</li>
+                <li>Tickets jusqu'à la mise en production, documentation technique, mise en service d'outils internes.</li>
+      </ul>
+      <ul data-lang="en">
+        <li>Server and network administration: directory services, network services, virtualisation.</li>
+        <li>Containerised business-app platform, single sign-on, automated deployment (also my research methodology project).</li>
+                <li>Tickets through to production, technical documentation, rollout of internal tools.</li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="proj-t">
+      <h2 id="proj-t"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></h2>
+      <div class="star">
+        <h3><span data-lang="fr">Ce portfolio : une ville en 3D, open source et auto-hébergée</span><span data-lang="en">This portfolio: an open-source, self-hosted 3D city</span></h3>
+        <p data-lang="fr">Ma ville reconstruite depuis OpenStreetMap (33 000 bâtiments), rendue dans le navigateur et optimisée jusqu'à diviser les appels de rendu par deux. Servi par Caddy sur un serveur à la maison, derrière un tunnel Cloudflare, sans port ouvert.</p>
+        <p data-lang="en">My city rebuilt from OpenStreetMap (33,000 buildings), rendered in the browser and optimised to halve draw calls. Served by Caddy from a home server behind a Cloudflare Tunnel, with no open port.</p>
+        <div class="tags"><span class="tag">Three.js</span><span class="tag">TypeScript</span><span class="tag">Blender · Python</span><span class="tag">OpenStreetMap</span><span class="tag">Caddy</span><span class="tag">Cloudflare Tunnel</span></div>
+        <p style="margin-top:8px"><a href="https://github.com/trystanbouzonrueda/trystanbouzonrueda.com" target="_blank" rel="noopener"><span data-lang="fr">Code source sur GitHub</span><span data-lang="en">Source code on GitHub</span></a> · <a href="/"><span data-lang="fr">Visiter en 3D</span><span data-lang="en">Visit in 3D</span></a></p>
+      </div>
+      <h3><span data-lang="fr">Entrepôt de données hospitalier · équipe de 3</span><span data-lang="en">Hospital data warehouse · team of 3</span></h3>
+      <p><span data-lang="fr">Entrepôt décisionnel pour un groupe hospitalier, des sources brutes au tableau de bord : couches bronze, silver, gold, modèle en étoile, données pseudonymisées (RGPD).</span><span data-lang="en">Decision-support warehouse for a hospital group, from raw sources to dashboards: bronze, silver and gold layers, star schema, pseudonymised data (GDPR).</span></p>
+      <div class="tags"><span class="tag">Hadoop · HDFS</span><span class="tag">Hive</span><span class="tag">Talend</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Power BI</span></div>
+      <h3><span data-lang="fr">JANUS et tRHy · applis métier de la mairie</span><span data-lang="en">JANUS and tRHy · city hall business apps</span></h3>
+      <p><span data-lang="fr">JANUS gère les événements municipaux de bout en bout (rôles, validations, temps réel) ; tRHy remplace une vieille appli RH en VB.NET et corrige ses failles. Droits vérifiés côté serveur, règles métier tracées jusque dans les tests.</span><span data-lang="en">JANUS runs municipal events end to end (roles, approvals, real time); tRHy replaces an old VB.NET HR tool and fixes its security flaws. Permissions checked server-side, business rules traced down to the tests.</span></p>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Socket.io</span><span class="tag">Docker</span></div>
+      <h3><span data-lang="fr">Homelab</span><span data-lang="en">Homelab</span></h3>
+      <p><span data-lang="fr">Pare-feu OPNsense et VLAN, Proxmox VE sur un serveur rack, Proxmox Backup Server, TrueNAS, Nextcloud ; accessible sans port ouvert, en partie piloté par des agents IA.</span><span data-lang="en">OPNsense firewall and VLANs, Proxmox VE on a rack server, Proxmox Backup Server, TrueNAS, Nextcloud; reachable with no open port, partly operated by AI agents.</span></p>
+      <div class="tags"><span class="tag">Proxmox VE</span><span class="tag">OPNsense</span><span class="tag">TrueNAS</span><span class="tag">Tailscale</span><span class="tag">Claude Code · MCP</span></div>
+      <h3><span data-lang="fr">EasySave · logiciel de sauvegarde, équipe de 4</span><span data-lang="en">EasySave · backup software, team of 4</span></h3>
+      <p><span data-lang="fr">Sauvegardes complètes et différentielles, chiffrement, travaux en parallèle. J'y ai fait le serveur de logs centralisé (ASP.NET Core dans Docker), la traduction FR/EN et des tests unitaires.</span><span data-lang="en">Full and differential backups, encryption, parallel jobs. I built the centralised log server (ASP.NET Core in Docker), the FR/EN translation and unit tests.</span> · <a href="https://github.com/Tuture57/Projet-EasySave" target="_blank" rel="noopener"><span data-lang="fr">code source</span><span data-lang="en">source code</span></a></p>
+      <div class="tags"><span class="tag">C# · .NET 10</span><span class="tag">WPF</span><span class="tag">ASP.NET Core</span><span class="tag">Docker</span><span class="tag">xUnit</span></div>
+      <h3><span data-lang="fr">Breezy · réseau social léger, projet de groupe</span><span data-lang="en">Breezy · lightweight social network, group project</span></h3>
+      <p><span data-lang="fr">Participation à toutes les briques : sept microservices, authentification JWT, médias, déployé sur Kubernetes et supervisé par Prometheus et Grafana.</span><span data-lang="en">Took part in every layer: seven microservices, JWT auth, media, deployed on Kubernetes and monitored with Prometheus and Grafana.</span></p>
+      <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Node.js</span><span class="tag">Next.js</span><span class="tag">MongoDB</span><span class="tag">Prometheus</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="comp-t">
+      <h2 id="comp-t"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></h2>
+      <div class="skills">
+        <div><h3><span data-lang="fr">Systèmes et réseaux</span><span data-lang="en">Systems &amp; networking</span></h3><div class="tags"><span class="tag">Windows Server</span><span class="tag">Active Directory · GPO</span><span class="tag">DNS · DHCP</span><span class="tag">Linux (Debian, Ubuntu)</span><span class="tag">Proxmox VE</span><span class="tag">VMware</span><span class="tag">VLAN · DMZ</span><span class="tag">VPN</span><span class="tag">TCP/IP</span></div></div>
+        <div><h3><span data-lang="fr">Cybersécurité</span><span data-lang="en">Security</span></h3><div class="tags"><span class="tag">pfSense · OPNsense</span><span class="tag">TLS</span><span class="tag"><span data-lang="fr">Durcissement</span><span data-lang="en">Hardening</span></span><span class="tag">Keycloak SSO</span><span class="tag">Zabbix</span><span class="tag"><span data-lang="fr">PRA</span><span data-lang="en">Disaster recovery</span></span></div></div>
+        <div><h3>DevOps &amp; cloud</h3><div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes (k3s)</span><span class="tag">Argo CD · GitOps</span><span class="tag">Git · GitHub</span><span class="tag">CI/CD</span></div></div>
+        <div><h3><span data-lang="fr">IA appliquée</span><span data-lang="en">Applied AI</span></h3><div class="tags"><span class="tag"><span data-lang="fr">Agents IA</span><span data-lang="en">AI agents</span></span><span class="tag">Claude Code</span><span class="tag">Model Context Protocol</span><span class="tag">Ollama</span></div></div>
+        <div><h3><span data-lang="fr">Données</span><span data-lang="en">Data</span></h3><div class="tags"><span class="tag">SQL · MariaDB</span><span class="tag">Hadoop · Hive</span><span class="tag">Talend</span><span class="tag">Power BI</span></div></div>
+        <div><h3><span data-lang="fr">Langages</span><span data-lang="en">Programming</span></h3><div class="tags"><span class="tag">PowerShell</span><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">PHP</span><span class="tag">C / C++</span></div></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="form-t">
+      <h2 id="form-t"><span data-lang="fr">Formation</span><span data-lang="en">Education</span></h2>
+      <h3 style="margin-top:0"><span data-lang="fr">Diplôme d'ingénieur, spécialité informatique (alternance)</span><span data-lang="en">Engineering degree, computer science (work-study)</span></h3>
+      <p class="meta"><span data-lang="fr">09/2025 – 2028 · CESI École d'Ingénieurs, Aix-en-Provence</span><span data-lang="en">09/2025 – 2028 · CESI School of Engineering, Aix-en-Provence</span></p>
+      <h3><span data-lang="fr">Cycle préparatoire ingénieur, mineure informatique</span><span data-lang="en">Engineering preparatory cycle, computer science minor</span></h3>
+      <p class="meta">09/2023 – 06/2025 · CESI</p>
+      <h3><span data-lang="fr">Baccalauréat STI2D, mention assez bien</span><span data-lang="en">French baccalaureate (engineering sciences), with honours</span></h3>
+      <p class="meta">06/2023 · Marseille</p>
+      <p style="margin-top:12px"><span data-lang="fr">Langues : français (natif), anglais. Autonomie, rigueur, esprit d'initiative.</span><span data-lang="en">Languages: French (native), English. Autonomous, thorough, proactive.</span></p>
+    </section>
+
+    <footer>
+      <p><a href="/"><span data-lang="fr">Visiter le portfolio en 3D</span><span data-lang="en">Visit the 3D portfolio</span></a> · <a href="/mentions-legales/"><span data-lang="fr">Mentions légales</span><span data-lang="en">Legal notice</span></a></p>
+    </footer>
+  </main>
+  <script>
+    // langue : ?lang=en pour un lien direct, sinon le choix mémorisé, sinon celle du navigateur
+    (() => {
+      const q = new URLSearchParams(location.search).get('lang');
+      let saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      const set = (l) => {
+        document.documentElement.lang = l;
+        document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.set === l)));
+        try { localStorage.setItem('lang', l); } catch (e) {}
+      };
+      set(q === 'en' || q === 'fr' ? q : saved || (navigator.language.startsWith('fr') ? 'fr' : 'en'));
+      document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => set(b.dataset.set)));
+    })();
+  </script>
+  <script type="module" src="/src/stats-page.ts"></script>
+</body>
+</html>
